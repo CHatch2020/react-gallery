@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./galleryItem.css";
 
-function GalleryItem({ disc }) {
+function GalleryItem({ disc, updateLikes }) {
   const [showDescription, setShowDescription] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
 
@@ -19,13 +19,14 @@ function GalleryItem({ disc }) {
   };
 
   const likes = () => {
-    setLikeCount(likeCount + 1);
+    updateLikes(disc.id);
+    setLikeCount(disc.likes);
   };
 
   return (
     <div className="disc">
       {displayItems()}
-      <p>Likes: {likeCount}</p>
+      <p>Likes: {disc.likes}</p>
       <button onClick={likes}>likes</button>
     </div>
   );

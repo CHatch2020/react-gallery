@@ -1,12 +1,12 @@
 import GalleryItem from "../galleryItem/galleryItem";
 
 
-function GalleryList({ galleryList }) {
+function GalleryList({ galleryList, updateLikes }) {
   return (
     <div>
       <p>My Discs</p>
         {galleryList.map((disc) => {
-          return <GalleryItem disc={disc} />;
+          return <GalleryItem disc={disc} updateLikes={updateLikes} />;
         })}
     </div>
   );
